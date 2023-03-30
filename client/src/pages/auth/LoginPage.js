@@ -1,22 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import "../../assets/css/login.css"
 import { Link } from 'react-router-dom';
 import authLayout from "../../hoc/authLayout";
 
-function LoginPage() {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+class LoginPage extends React.Component {
+    constructor(props){
+        super(props);
 
-    const handleEmailChange = (e) => {
-        setEmail(e.target.value);
+        this.state = {};
     }
 
-    const handlePasswordChange = (e) => {
-        setPassword(e.target.value);
-    }
-
-    return (
-        <>
+    render(){
+        return <>
             <form className="login-form">
                 <div className="d-flex align-items-center my-4">
                     <h1 className="text-center fw-normal mb-0 me-3">Sign In</h1>
@@ -25,14 +20,14 @@ function LoginPage() {
                 <div className="form-outline mb-4">
                     <label className="form-label" htmlFor="form3Example3">Email address</label>
                     <input type="email" id="form3Example3" className="form-control form-control-lg"
-                    placeholder="Enter a valid email address" value={email} onChange={handleEmailChange} />
+                    placeholder="Enter a valid email address" />
                 </div>
 
                 {/* <!-- Password input --> */}
                 <div className="form-outline mb-3">
                     <label className="form-label" htmlFor="form3Example4">Password</label>
                     <input type="password" id="form3Example4" className="form-control form-control-lg"
-                    placeholder="Enter password" value={password} onChange={handlePasswordChange} />
+                    placeholder="Enter password" />
                 </div>
 
                 <div className="d-flex justify-content-between align-items-center">
@@ -53,7 +48,7 @@ function LoginPage() {
                 </div>
             </form>
         </>
-    );
+    }
 }
 
 export default authLayout(LoginPage);

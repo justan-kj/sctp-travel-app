@@ -3,8 +3,8 @@ import CreateTripModal from "../components/CreateTripModal";
 import TripList from "../components/TripList";
 import adminLayout from "../hoc/adminLayout";
 import Button from "react-bootstrap/esm/Button";
-import DeleteTripModal from "components/DeleteTripModal";
-import EditTripModal from "components/EditTripModal";
+import DeleteTripModal from "../components/DeleteTripModal";
+import EditTripModal from "../components/EditTripModal";
 import ItineraryService from "../api/ItineraryControllerAPI";
 
 function TripsOverview() {
