@@ -32,26 +32,32 @@ const itineraryService = {
     const response = await itineraryApi.delete(`/itineraries/${itineraryId}`);
     return response.data;
   },
+  async getItineraryItems(itineraryId) {
+    const response = await itineraryApi.get(
+      `/itineraries/${itineraryId}/items`
+    );
+    return response.data;
+  },
   async getItineraryItem(itineraryId, itineraryItemId) {
     const response = await itineraryApi.get(`/itineraries/${itineraryId}/items/${itineraryItemId}`);
     return response.data;
   },
-  async addItinerary(itinerary) {
-    const response = await itineraryApi.post('/itineraries', itinerary);
-    return response.data;
-  },
   async addItineraryItem(itineraryId, itineraryItem) {
-    const response = await itineraryApi.post(`/itineraries/${itineraryId}`, itineraryItem);
+    const response = await itineraryApi.post(
+      `/itineraries/${itineraryId}`,
+      itineraryItem
+    );
     return response.data;
   },
-  async deleteItinerary(itineraryId) {
-    const response = await itineraryApi.delete(`/itineraries/${itineraryId}`);
+  async updateItineraryItem(itineraryItemId, itineraryItem) {
+    const response = await itineraryApi.put(
+      `/itineraries/items/${itineraryItemId}`,
+      itineraryItem
+    );
     return response.data;
   },
   async deleteItineraryItem(itineraryItemId) {
-    const response = await itineraryApi.delete(
-      `/itineraries/items/${itineraryItemId}`
-    );
+    const response = await itineraryApi.delete(`/itineraries/items/${itineraryItemId}`);
     return response.data;
   },
   async deleteDestinationItem(itineraryItemId) {
@@ -81,7 +87,7 @@ const itineraryService = {
           label: country,
         })
       );
-    return options;
+      return options;
     } catch (error) {
       console.log(error.message);
     }
